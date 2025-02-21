@@ -1,0 +1,54 @@
+LINK PARA O BOARD:
+   https://www.tinkercad.com/things/7aEIo8Zj58Z-aula-23-exercicio-semaforo-/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=gX1KngboZRmceJcGAr6bKLprHLh5jPubFNl0zbbEECI
+
+CÓDIGO:
+
+void setup()
+
+{
+  pinMode(vermelho1,OUTPUT);
+  pinMode(amarelo1,OUTPUT);
+  pinMode(verde1,OUTPUT);
+     pinMode(ped1,OUTPUT);
+     pinMode(ped2,OUTPUT);
+  pinMode(vermelho2,OUTPUT);
+  pinMode(amarelo2,OUTPUT);
+  pinMode(verde2,OUTPUT);
+     pinMode(ped01,OUTPUT);
+     pinMode(ped02,OUTPUT);
+}
+
+
+
+void loop()
+
+{ 
+     digitalWrite(vermelho1, ligar );
+     digitalWrite(ped2, ligar);
+     digitalWrite(verde2, ligar);
+     digitalWrite(ped01, ligar);    
+  delay(3000);
+     digitalWrite(verde2, desligar);
+     digitalWrite(ped01, desligar);
+     digitalWrite(amarelo2, ligar);
+  delay(1000);
+     digitalWrite(ped2, desligar);
+     digitalWrite(ped1, ligar);
+  delay(1000);
+     digitalWrite(vermelho1, desligar);
+     digitalWrite(ped1, ligar);
+     digitalWrite(verde1, ligar);
+     digitalWrite(amarelo2, desligar);
+     digitalWrite(vermelho2, ligar);
+     digitalWrite(ped02, ligar);
+  delay(3000);
+     digitalWrite(amarelo1, desligar);
+     digitalWrite(ped1, desligar);
+     digitalWrite(verde1, desligar);
+     digitalWrite(amarelo1, ligar);
+     digitalWrite(ped02, desligar);
+  delay(2000);
+     digitalWrite(vermelho2, desligar);
+     digitalWrite(amarelo1, desligar);
+}
+
