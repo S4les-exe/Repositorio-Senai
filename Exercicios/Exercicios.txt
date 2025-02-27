@@ -1,0 +1,272 @@
+https://www.tinkercad.com/things/fR8GfaD5KnC-exercicios/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=lwtvFdLn2o6cehE1IKMLgxTGXfZ8wpykvXZhlECPBJ0
+
+ARDUINO 1
+
+/*
+Nome do Arquivo: Operadores Logicos 
+Autor: Arthur Sales Santos	
+Data: 25/02/2025
+Descricao: Exercicios 
+*/
+
+
+/*
+float peso=90;
+float altura=1.82;
+float imc=0;
+
+void setup()
+{
+  Serial.begin(9600);
+  imc= (peso / (sq(altura)));
+  Serial.print("IMC da pessoa e igual a: ");
+  Serial.println(imc);
+  
+     if(imc>=35){
+        Serial.println("Me parece que voce esta com Obesidade Extrema");
+       
+     }if(imc>=30){
+        Serial.println("Me parece que voce esta com Obesidade"); 
+  
+     }else if(imc<30 & imc>25){
+        Serial.println("Me parece que voce esta com Excesso de Peso");
+     
+     }else if(imc<=25.0 & imc>=18){
+        Serial.println("Me parece que seu peso esta Normal");
+     
+     }else{
+        Serial.println("Me parece que voce esta Abaixo do Peso");
+     }
+*/ 
+
+#define alertaT 13
+#define alertaB 12
+
+
+
+float temperatura= 30;
+float bateria= 50;
+  
+  
+void setup()
+{
+pinMode(alertaT, OUTPUT);
+pinMode(alertaB, OUTPUT);
+    
+Serial.begin(9600);
+  
+Serial.println("TEMPERATURA:"); 
+    
+  if (temperatura >30){
+       
+     digitalWrite(alertaT, HIGH);
+     Serial.println("ALERTA!");
+      
+  }else{
+     
+     digitalWrite(13,LOW);
+     Serial.println("Temperatura esta Normal"); 
+  }
+        
+Serial.println("BATERIA:");
+
+  if(bateria>80){
+       
+     digitalWrite(alertaB, LOW);
+     Serial.println("A bateria esta cheia");
+       
+  
+  }else if(bateria<80 & bateria>20){
+        
+     digitalWrite(alertaB, HIGH);
+     Serial.println("Aviso de Bateria!");
+    
+  }
+  
+}
+
+
+void loop()  
+{
+
+  
+ 
+  
+}
+
+
+ARDUINO 2
+
+void setup()
+{
+/*
+int valor= 1023;
+int intervalo=map(valor, 0, 1023, 0, 100);  
+int resultado=constrain(intervalo, 20, 80);
+int par=intervalo %= 2;
+*/
+/*
+Serial.begin(9600);
+pinMode(13, OUTPUT);
+pinMode(12, OUTPUT);
+*/
+//*******Questao 3********  
+/*
+if(intervalo>=80 || intervalo<=20){
+   
+  digitalWrite(13, HIGH);
+  Serial.print("Valor Original:'"); Serial.print(intervalo);
+  Serial.println("' excedeu os limites");
+  Serial.print("Valor Reajustado:'");
+  Serial.print(resultado); Serial.println("'");
+    
+}else{
+
+  Serial.print("valor reajustado para "); Serial.println(resultado);
+}
+/*
+*/
+//*******Questao 4*********
+/* 
+if(par==0){
+   
+  digitalWrite(12, HIGH);
+  Serial.println("Valor: Par");
+  
+}else{
+
+  digitalWrite(12, LOW);
+  Serial.println("Valor: Impar");
+  
+}
+*/
+}
+
+
+void loop()
+{
+  
+  
+  
+}
+
+
+ARDUINO 3
+
+void setup()
+{
+ Serial.begin(9600);
+  
+//*******QUESTAO 1*******  
+/* 
+int valor=40;
+int resto= valor %=2;  
+  
+  if(resto ==0){
+     
+    Serial.println("Valor: Par");
+
+   }
+*/  
+//*******QUESTAO 2*******
+/*
+float salario= 900;
+float centagem= 1.1;
+float reajuste= salario* centagem;
+
+  Serial.println("NOME:    Arthur Sales Santos");
+  Serial.println("CARGO:   Dev");
+  Serial.print("SALARIO: "); Serial.println(salario);
+  
+ 
+  if(salario<1000){
+     
+    Serial.println("REAJUSTE");
+    Serial.println("NOME:    Arthur Sales Santos");
+    Serial.println("CARGO:   Dev");
+    Serial.print("SALARIO: "); Serial.println(reajuste);
+  
+  }
+*/
+
+//*******QUESTAO 3*******
+/*
+float salario=  600;
+float aumento=  1.3;
+float reajuste= salario * aumento;
+  
+  Serial.print("SEU SALARIO: '"); Serial.print(salario);
+  Serial.println("'");
+  
+  if (salario<500){
+      
+     Serial.print("REAJUSTE DE SALARIO: '");
+     Serial.print(reajuste);
+     Serial.println("'");
+
+  }else{
+  
+    Serial.println("SEU SALARIO NAO TEM DIREITO AO PROGRAMA AUMENTO");
+    
+  }
+*/
+//*******QUESTAO 4*******
+/* 
+float valor1= 5;
+float valor2= 10;
+  
+  if(valor1<valor2){
+    
+     Serial.println(valor2);
+
+  }else{
+
+     Serial.println(valor1);
+
+  }
+*/
+//*******QUESTAO 5*******
+/*
+#define aprovado 13
+#define recuperacao 12
+#define reprovado 11
+
+pinMode (aprovado, OUTPUT);
+pinMode (recuperacao, OUTPUT);
+pinMode (reprovado, OUTPUT);
+
+float nota1=   7.5;
+float nota2=   7.0;
+float nota3=   8.0;
+float nota4=   6.0;
+float materias=4;
+float media=((nota1+nota2+nota3+nota4)/materias);  
+  
+  Serial.println("BOLETIM");
+  Serial.println(media);
+  Serial.print("Estado: ");
+  
+  if (media>=7.0){
+
+     Serial.println("APROVADO");
+     digitalWrite(aprovado, HIGH);
+  
+  }else if(media<7.0 & media>=5.0){
+
+     Serial.println("RECUPERACAO");
+     digitalWrite(recuperacao,HIGH);
+     
+  }else if(media<5.0 & media>0.0){
+
+     Serial.println("REPROVADO");
+     digitalWrite(reprovado,HIGH);
+     
+  } 
+*/
+}
+
+
+void loop()
+{
+
+}
