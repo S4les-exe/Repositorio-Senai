@@ -11,6 +11,8 @@ Descricao: Exercicios
 
 
 /*
+//******************IMC***************
+
 float peso=90;
 float altura=1.82;
 float imc=0;
@@ -37,7 +39,9 @@ void setup()
      }else{
         Serial.println("Me parece que voce esta Abaixo do Peso");
      }
+
 */ 
+//************Questão 1 e 2***************
 
 #define alertaT 13
 #define alertaB 12
@@ -110,7 +114,7 @@ Serial.begin(9600);
 pinMode(13, OUTPUT);
 pinMode(12, OUTPUT);
 */
-//*******Questao 3********  
+//*******Questao 3 e 4********  
 /*
 if(intervalo>=80 || intervalo<=20){
    
@@ -126,7 +130,6 @@ if(intervalo>=80 || intervalo<=20){
 }
 /*
 */
-//*******Questao 4*********
 /* 
 if(par==0){
    
@@ -157,7 +160,7 @@ void setup()
 {
  Serial.begin(9600);
   
-//*******QUESTAO 1*******  
+//*******QUESTAO 4*******  
 /* 
 int valor=40;
 int resto= valor %=2;  
@@ -168,7 +171,23 @@ int resto= valor %=2;
 
    }
 */  
-//*******QUESTAO 2*******
+
+//*******QUESTAO 5**********
+
+int valor1=10
+
+if (valor<=0){
+
+    Serial.println("SEU NUMERO EH POSITIVO");
+
+}else{
+
+    Serial.println("SEU NUMERO EH NEGATIVO); 
+
+}
+
+//*******QUESTAO 6*********
+
 /*
 float salario= 900;
 float centagem= 1.1;
@@ -189,7 +208,7 @@ float reajuste= salario* centagem;
   }
 */
 
-//*******QUESTAO 3*******
+//*******QUESTAO 7*******
 /*
 float salario=  600;
 float aumento=  1.3;
@@ -210,7 +229,7 @@ float reajuste= salario * aumento;
     
   }
 */
-//*******QUESTAO 4*******
+//*******QUESTAO 8*******
 /* 
 float valor1= 5;
 float valor2= 10;
@@ -225,7 +244,7 @@ float valor2= 10;
 
   }
 */
-//*******QUESTAO 5*******
+//*******QUESTAO 9*******
 /*
 #define aprovado 13
 #define recuperacao 12
