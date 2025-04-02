@@ -1,0 +1,167 @@
+INTRODUCAO E PROJETO DO DISPLAY
+
+https://www.tinkercad.com/things/i6k3lYqm23n-display/editel?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard%2Fdesigns%2Fcircuits&sharecode=kqbjcZjSmpS878Sb_RwhUVccmGuCnWofvPHlH5n7bFI
+
+/*
+Autor: Arthur Sales Santos 
+Nome do Projeto: Display e LED
+Descricao: Introducao ao display e depois fizemos um exercicio:
+Fazer um Led ligar e desligar ao botao ser pressionado, e depois adicionamos 
+mais dois leds e dois botoes ao sistema    
+
+Data: 12/03/2025
+*/
+
+
+#include <LiquidCrystal_I2C.h> 
+//é um conjunto de recursos e funcionalidades
+// que podem ser usados para resolver problemas
+
+ 
+
+LiquidCrystal_I2C lcd (0x27, 16, 2); // tipo do objeto, todos criados serao liquidcrystal
+/*
+//*************INTRODUCAO**************
+const int pinBotao1 = 8;
+const int vermelho = 13;
+
+void setup() {
+  pinMode(vermelho, OUTPUT);
+  pinMode(vermelho,  INPUT);
+  lcd.init(); //iniciar a biblioteca (display)
+  lcd.backlight(); //ligar luz do fundo 
+  lcd.setCursor(0,1); //posicionar o cursor na primeira coluna linha 2
+  lcd.print("HELLO WORLD!!");// aparece oque voce quer escrever no display
+}
+
+void loop() {
+  
+
+}
+*/
+//***************EXERCICIO*************
+
+const int vermelho = 13;
+const int azul     = 12;
+const int amarelo  = 11;
+
+const int botaoA   =  8;
+const int botaoB   =  9;
+const int botaoC   = 10;
+
+void setup()
+{
+pinMode(vermelho,    OUTPUT);
+pinMode(azul,        OUTPUT);
+pinMode(amarelo,     OUTPUT);
+  
+pinMode(botaoA,       INPUT);
+pinMode(botaoB,       INPUT);
+pinMode(botaoC,       INPUT);
+  
+lcd.init();
+lcd.backlight(); 
+lcd.home(); // lcd.setCursor (0,0);
+lcd.print("Leds ON");
+lcd.setCursor(0,1);
+lcd.print("Leds OFF");
+}
+
+void loop()
+{
+  bool estadoBotaoA = digitalRead(botaoA);
+  bool estadoBotaoB = digitalRead(botaoB);
+  bool estadoBotaoC = digitalRead(botaoC);
+  
+  static bool estadoAnteriorA = 0;
+  static bool estadoLedA = 0;
+  
+  static bool estadoAnteriorB = 0;
+  static bool estadoLedB = 0;
+  
+  static bool estadoAnteriorC = 0;
+  static bool estadoLedC= 0;
+  
+//SISTEMA A 
+  
+  if(estadoBotaoA && !estadoAnteriorA)
+  {
+  //botao pressionado
+  estadoLedA = !estadoLedA;
+  digitalWrite(vermelho, estadoLedA);
+  
+
+    if(estadoLedA)
+      {
+      lcd.setCursor(9,0);
+      lcd.print("A");
+      lcd.setCursor(9,1);
+      lcd.print(" ");
+      
+      }else{
+      lcd.setCursor(9,0);
+      lcd.print(" ");
+      lcd.setCursor(9,1);
+      lcd.print("A");
+      }
+  }else
+  {
+  //botao solto
+  }
+  estadoAnteriorA = estadoBotaoA;
+  
+//SISTEMA B
+  
+  if(estadoBotaoB && !estadoAnteriorB)
+  {
+  //botao pressionado 
+  estadoLedB = !estadoLedB;
+  digitalWrite(azul, estadoLedB);
+  
+    if(estadoLedB)
+    {
+    lcd.setCursor(10,0);
+    lcd.print("B");
+    lcd.setCursor(10,1);
+    lcd.print(" ");
+      
+    }else
+    {
+    lcd.setCursor(10,0);
+    lcd.print(" ");
+    lcd.setCursor(10,1);
+    lcd.print("B");
+    }
+  }else 
+  {
+  //botao solto 
+  }
+  estadoAnteriorB = estadoBotaoB;
+  
+//SISTEMA C 
+  
+  if(estadoBotaoC && !estadoAnteriorC)
+  {
+  //botao pressionado 
+  estadoLedC = !estadoLedC;
+  digitalWrite(amarelo, estadoLedC);
+    
+    if(estadoLedC)
+    {
+    lcd.setCursor(11,0);
+    lcd.print("C");
+    lcd.setCursor(11,1);
+    lcd.print(" ");
+    
+    }else 
+    {
+    lcd.setCursor(11,0);
+    lcd.print(" ");
+    lcd.setCursor(11,1);
+    lcd.print("C");
+    }
+    
+  }
+  estadoAnteriorC = estadoBotaoC;
+
+}
